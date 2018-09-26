@@ -1,0 +1,21 @@
+#coding=utf-8
+en_ids_file = './data/train.txt.en.id'
+zh_ids_file = './data/train.txt.zh.id'
+HIDDEN_SIZE = 1024 # LSTM 隐藏层网络
+NUM_LAYERS = 2
+en_vocab_size = 12633
+zh_vocab_size = 18954
+BATCH_SIZE = 10
+NUM_EPOCH = 5
+KEEP_PROB = 0.8
+MAX_GRAD_NORM = 5
+SHARED_EMD_AND_SOFTMAX = True
+CHECKPOINT_PATH = './model/seq2seq_ckpt'
+LEARNING_RATE = 0.9
+
+CHECKPOINT_RESTORE_PATH = './model/seq2seq_ckpt-80'
+
+SOS_ID = 1
+EOS_ID = 2
+
+MAX_DECODE_LENGTH = 100
