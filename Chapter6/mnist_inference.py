@@ -90,9 +90,10 @@ def inference(input_tensor, train, regularizer):
 	shape = pool2.get_shape().as_list()
 	length = shape[1] * shape[2] * shape[3]
 	# (batch, 7 * 7 * 64)
+	print shape
 	reshaped_pool2 = tf.reshape(
 		pool2,
-		[shape[0], length]
+		[-1, length]
 		)
 
 	with tf.variable_scope('layer5-fc1'):

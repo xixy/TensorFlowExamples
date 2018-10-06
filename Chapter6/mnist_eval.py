@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import mnist_inference
 import mnist_train
-
+import numpy as np
 EVAL_INTERVAL_SECS = 10
 
 def evaluate(mnist):
@@ -13,7 +13,7 @@ def evaluate(mnist):
 		# shape = (batch, length, width, channels)
 		x = tf.placeholder(
 			name = 'x-input',
-			shape = [BATCH_SIZE, 
+			shape = [None, 
 			mnist_inference.IMAGE_SIZE, 
 			mnist_inference.IMAGE_SIZE, 
 			mnist_inference.NUM_CHANNELS],
@@ -28,7 +28,7 @@ def evaluate(mnist):
 		images = mnist.validation.images
 		shape = images.shape
 		images = np.reshape(mnist.validation.images,
-			[shape[1], 
+			[-1, 
 			mnist_inference.IMAGE_SIZE, 
 			mnist_inference.IMAGE_SIZE,
 			mnist_inference.NUM_CHANNELS]
